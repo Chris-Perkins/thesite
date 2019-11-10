@@ -1,4 +1,8 @@
 import * as React from "react";
+import { WeddingInfoBlock } from "./WeddingInfoBlock";
+import { HeaderPhotoBanner } from "./HeaderPhotoBanner";
+import { SignupBlock } from "./SignupBlock";
+import { ContactBlock } from "./ContactBlock";
 
 const pageStyle = {
     margin:"0%",
@@ -12,7 +16,10 @@ export class Home extends React.Component {
     render() {
         return (
             <div style={pageStyle}>
-                <p>NOTHING!</p>
+                <HeaderPhotoBanner />
+                <SignupBlock />
+                <WeddingInfoBlock />
+                <ContactBlock />
             </div>
         );
     }
