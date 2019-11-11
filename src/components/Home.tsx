@@ -3,12 +3,13 @@ import { WeddingInfoBlock } from "./WeddingInfoBlock";
 import { HeaderPhotoBanner } from "./HeaderPhotoBanner";
 import { SignupBlock } from "./SignupBlock";
 import { ContactBlock } from "./ContactBlock";
+import '../../style.css';
 
 const pageStyle = {
-    margin:"0%",
-    width: "100%",
-    minHeight:"100%",
-    padding: "0%",
+    margin:0,
+    padding: 0,
+    left: 0,
+    right: 0,
     position:"absolute" as "absolute",
 };
 

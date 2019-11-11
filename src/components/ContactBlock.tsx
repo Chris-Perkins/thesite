@@ -1,15 +1,43 @@
 import * as React from "react";
 
-const pageStyle = {
-    width: "100%",
-    padding: "0%",
+const contactDetails = {
+    color: "#ffffff",
+    textAlign: "center" as "center"
+};
+
+const separateDivsContinuousBlock = {
+    margin: 0,
+    padding: 0,
 };
 
 export class ContactBlock extends React.Component {
     render() {
         return (
-            <div style={pageStyle}>
-                <p>CONTACT US</p>
+            <div className="fullContainer" style={{backgroundColor: "#0E0E0E", padding: "2px"}}>
+                <p style={contactDetails}>
+                    If you need to contact us for any questions, feel free to send an email to&nbsp;
+                    <span style={separateDivsContinuousBlock}>
+                        chr
+                    </span>
+                    <span style={separateDivsContinuousBlock}>
+                        is
+                    </span>
+                    <span style={separateDivsContinuousBlock}>
+                        @
+                    </span>
+                    <span style={separateDivsContinuousBlock}>
+                        chri
+                    </span>
+                    <span style={separateDivsContinuousBlock}>
+                        sperk
+                    </span>
+                    <span style={separateDivsContinuousBlock}>
+                        ins
+                    </span>
+                    <span style={separateDivsContinuousBlock}>
+                        .me
+                    </span>
+                </p>
             </div>
         );
     }
