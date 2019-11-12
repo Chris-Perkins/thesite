@@ -30,7 +30,7 @@ export class HeaderPhotoBanner extends React.Component {
                         Lilly and Chris's Wedding
                     </h1>
                     <h3 style={headerStyling}>
-                        June 27th, 2019
+                        June 27th, 2020
                     </h3>
                 </div>
             </div>
