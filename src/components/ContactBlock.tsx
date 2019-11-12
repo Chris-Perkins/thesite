@@ -2,7 +2,9 @@ import * as React from "react";
 
 const contactDetails = {
     color: "#ffffff",
-    textAlign: "center" as "center"
+    textAlign: "center" as "center",
+    
+    padding: "1%"
 };
 
 const separateDivsContinuousBlock = {

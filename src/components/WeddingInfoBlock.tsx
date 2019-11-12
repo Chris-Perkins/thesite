@@ -8,8 +8,18 @@ const blockStyle = {
 };
 
 const infoSection = {
-    padding: "1%"
+    padding: "10px"
 };
+
+const mapsFrameContainer = {
+    marginTop: "10px",
+
+    width: 600, 
+    maxWidth: "100%",
+    height: 400
+};
+
+const googleMapsFrame = '<iframe top=0 left=0 right=0 bottom=0 width="100%" height="100%" margin=0 position="absolute" frameborder=0 src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJBXoN1P9154gRBFmCgKtrG8o&key=AIzaSyBuYQ1LdimDqupYvIcl9Tm3pA2s5Ye8_yU" allowfullscreen></iframe>';
 
 export class WeddingInfoBlock extends React.Component {
     render() {
@@ -21,9 +31,12 @@ export class WeddingInfoBlock extends React.Component {
                             We're excited to have you come!
                         </h3>
                         <p>
-                            The wedding will take place at the Mission Inn of Orlando. Parking is available at the Mission Inn.<br />
-                            [FILL IN MISSION INN DETAILS HERE, ADD PICS N SHIT. MENTION PARKING IS AVAILABLE AT THE VENUE]
+                            The wedding will take place at the Mission Inn located in Howey In The Hills. Complimentary parking will be available at the venue.
                         </p>
+                        <p style={{marginTop: "1%"}}>
+                            The address and further details about Mission Inn can be viewed at <a href="https://missioninnresort.com/">their website</a> or in the map provided below.
+                        </p>
+                        <div style={mapsFrameContainer} dangerouslySetInnerHTML={{__html: googleMapsFrame}} />
                     </div>
                     <div style={infoSection}>
                         <h3>
@@ -46,7 +59,7 @@ export class WeddingInfoBlock extends React.Component {
                             No, you don't need to bring a gift.
                         </h3>
                         <p>
-                            While gifts are appreciated, we understand that coming to a wedding is a commitment itself. Your presence itself is gift enough.
+                            While gifts are appreciated, we understand that coming to a wedding can be a large commitment. Your presence is a gift itself.
                         </p>
                     </div>
                 </div>
