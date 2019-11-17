@@ -5,7 +5,7 @@ const pageStyle = {
     padding: "0%",
     paddingTop: "5%",
 
-    background: "url('./imgs/cat.jpg') no-repeat center center",
+    background: "url('./imgs/banner.jpg') no-repeat center center",
     backgroundSize: "cover",
     overflow: "invisible",
     noRepeat: "50% 50%"
@@ -18,7 +18,9 @@ const headerBlockSpacing = {
 const headerStyling = {
     color: "white",
     textAlign: "center" as "center",
-    width: "100%"
+    width: "100%",
+
+    textShadow: "2px 2px #000000"
 };
 
 export class HeaderPhotoBanner extends React.Component {

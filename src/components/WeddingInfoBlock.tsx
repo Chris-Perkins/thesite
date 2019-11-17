@@ -35,10 +35,10 @@ export class WeddingInfoBlock extends React.Component {
                                 We're excited to have you come!
                             </h3>
                             <p>
-                                The wedding will take place at the Mission Inn located in Howey In The Hills on June 27th, 2020. Complimentary parking will be available at the venue.
+                                Complimentary parking will be available at the Mission Inn, so please park close to the main lobby. From the main lobby, there will be signs guiding you to our ceremony. If you get lost, please call the Mission Inn desk: <a href="tel:3523243101">(352) 324-3101</a>
                             </p>
                             <p style={{marginTop: "1%"}}>
-                                The address and further details about Mission Inn can be viewed at <a href="https://missioninnresort.com/">their website</a> or in the map provided.
+                                Further details about Mission Inn can be viewed at <a href="https://missioninnresort.com/">their website</a>.
                             </p>
                         </div>
                         <div className="collapsibleTwoColumnElement" dangerouslySetInnerHTML={{__html: googleMapsFrame}} />

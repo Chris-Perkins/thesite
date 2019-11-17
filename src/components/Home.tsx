@@ -3,6 +3,7 @@ import { WeddingInfoBlock } from "./WeddingInfoBlock";
 import { HeaderPhotoBanner } from "./HeaderPhotoBanner";
 import { SignupBlock } from "./SignupBlock";
 import { ContactBlock } from "./ContactBlock";
+import { WeddingQuickDetails } from "./WeddingQuickDetails";
 import '../../style.css';
 
 const pageStyle = {
@@ -18,6 +19,7 @@ export class Home extends React.Component {
         return (
             <div style={pageStyle}>
                 <HeaderPhotoBanner />
+                <WeddingQuickDetails />
                 <SignupBlock />
                 <WeddingInfoBlock />
                 <ContactBlock />
