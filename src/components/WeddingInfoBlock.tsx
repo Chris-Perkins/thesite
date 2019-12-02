@@ -100,7 +100,7 @@ export class WeddingInfoBlock extends React.Component {
                                 </p>
                             </div>
                         </div>
-                        <div>
+                        <div style={{paddingLeft: "2%", paddingRight: "2%"}}>
                             <h3>
                                 Have questions? Contact us!
                             </h3>
