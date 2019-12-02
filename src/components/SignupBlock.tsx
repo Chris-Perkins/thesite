@@ -5,12 +5,10 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 const container = {
     position: "relative" as "relative",
     margin: "0 0 0 0",
-    backgroundColor: "#ebffe6",
-
-    zIndex: -10
 };
 
 const backgroundDiv = {
+    backgroundColor: "#ebffe6",
     background: "url('./imgs/cactus.png') repeat",
     opacity: 0.07,
 
@@ -21,6 +19,18 @@ const backgroundDiv = {
     height: "100%",
 
     zIndex: -5
+};
+
+const backgroundColorDiv = {
+    backgroundColor: "#ebffe6",
+
+    position: "absolute" as "absolute",
+    margin: "0 0 0 0",
+    padding: "0 0 0 0",
+    width: "100%",
+    height: "100%",
+
+    zIndex: -10
 };
 
 const quizHeaderStyle = {
@@ -42,7 +52,7 @@ const quizBlockStyle = {
     marginBottom: "3%",
 
     paddingLeft: "2%",
-    paddingRight: "2%"
+    paddingRight: "2%",
 };
 
 export class SignupBlock extends React.Component {
@@ -50,7 +60,8 @@ export class SignupBlock extends React.Component {
         return (
             <div style={container}>
                 <div style={backgroundDiv} />
-                <div className="fullContainer" style={{zIndex: 10}}>
+                <div style={backgroundColorDiv} />
+                <div className="fullContainer">
                     <h2 style={quizHeaderStyle}>
                         Accept Your Invitation
                     </h2>
