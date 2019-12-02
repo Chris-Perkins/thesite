@@ -25,7 +25,7 @@ const quizBlockStyle = {
 };
 
 const containerStyle = {
-    backgroundColor: "#cccccc"
+    backgroundColor: "#ebffe6"
 };
 
 export class SignupBlock extends React.Component {

@@ -1,48 +1,100 @@
 import * as React from "react";
 
+const container = {
+    position: "relative" as "relative",
+    margin: "0 0 0 0"
+};
+
 const blockStyle = {
     left: "1%",
     right: "1%",
-    top: "1%",
-    bottom: "1%",
+    top: "0%",
+    bottom: "0%",
 
-    display: "flex",
-    flexWrap: "wrap" as "wrap"
+    display: "block" as "block",
 };
 
 const infoBlock = {
-    padding: "1%"
+    padding: 0,
+    alignContent: "center" as "center",
+    textAlign: "center" as "center",
+    width: "100%",
+
+    zIndex: 5
 };
 
-const aspectFillPhotoBlock = {
-    backgroundSize: "cover",
-    overflow: "invisible",
-    noRepeat: "50% 50%",
+const subSectionBlock = {
+    padding: "2% 5% 0 5%"
+};
 
-    minHeight: 175
+const miniHeader = {
+    fontSize: "2.5vh",
+    marginBottom: "0.5%"
+};
+
+const leafAccent = {
+    background: "url('./imgs/leafmealone.png') no-repeat center center",
+    backgroundSize: "contain",
+
+    paddingBottom: "20%",
+    minWidth: "200px",
+    minHeight: "300px",
+    opacity: 0.5,
+    width: "15%",
+
+    display: "block" as "block",
+    position: "absolute" as "absolute",
+    zIndex: -1
+};
+
+const leftLeafAccent = {
+    left: 0
+};
+
+const rightLeafAccent = {
+    right: 0,
+    bottom: 0,
+    transform: "scale(-1, -1)"
 };
 
 export class WeddingQuickDetails extends React.Component {
     render() {
         return (
-            <div className="fullContainer">
-                <div style={blockStyle}>
-                    <div style={infoBlock} className="collapsibleTwoColumnElement">
-                        <h4>
-                            Welcome to our wedding!
-                        </h4>
-                        <p>
-                            We're so excited to share our day with those that we love most. Below are some details that will help you join us on our special day.
-                        </p>
-                        <p style={{marginTop: "1%"}}>
-                            <b>Where:</b> 10400 FL-48, Howey-In-The-Hills, FL 34737<br/>
-                            <b>When:</b> 5:30pm on June 27, 2020
-                        </p>
-                        <p style={{marginTop: "1%"}}>
-                            Further details can be found below.
-                        </p>
+            <div style={container}>
+                <div style={{...leafAccent,...leftLeafAccent}} />
+                <div style={{...leafAccent,...rightLeafAccent}} />
+                <div className="fullContainer">
+                    <div style={blockStyle}>
+                        <div style={infoBlock}>
+                            <div style={subSectionBlock}>
+                                <h4>
+                                    WE'RE GETTING MARRIED!
+                                </h4>
+                                <p>
+                                    We're so excited to share our day with those that we love most!
+                                </p>
+                            </div>
+                            <div style={subSectionBlock}>
+                                <p style={miniHeader}>
+                                    ON
+                                </p>
+                                <h5>
+                                    JUNE 27, 2020 at 5:30PM
+                                </h5>
+                            </div>
+                            <div style={subSectionBlock}>
+                                <p style={miniHeader}>
+                                    AT
+                                </p>
+                                <h5>
+                                    MISSION INN RESORT &amp; CLUB
+                                </h5>
+                                <p style={miniHeader}>
+                                    Howey in the Hills, Florida
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="collapsibleTwoColumnElement" style={{...aspectFillPhotoBlock,...{background: "url('./imgs/meandlil.jpg') no-repeat center center"}}} />
                 </div>
             </div>
         );
