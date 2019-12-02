@@ -57,12 +57,25 @@ const rightLeafAccent = {
     transform: "scale(-1, -1)"
 };
 
+const backgroundDiv = {
+    background: "url('./imgs/dots.png') repeat",
+
+    position: "absolute" as "absolute",
+    margin: "0 0 0 0",
+    padding: "0 0 0 0",
+    width: "100%",
+    height: "100%",
+
+    zIndex: -5
+};
+
 export class WeddingQuickDetails extends React.Component {
     render() {
         return (
             <div style={container}>
                 <div style={{...leafAccent,...leftLeafAccent}} />
                 <div style={{...leafAccent,...rightLeafAccent}} />
+                <div style={backgroundDiv} />
                 <div className="fullContainer">
                     <div style={blockStyle}>
                         <div style={infoBlock}>

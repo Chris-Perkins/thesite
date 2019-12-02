@@ -18,16 +18,17 @@ const headerStyling = {
     textAlign: "center" as "center",
     
     width: "100%",
-    marginBottom: "2%"
+    paddingBottom: "2%",
+    marginBottom: "0"
 };
 
 export class InfoBlockBanner extends React.Component {
     render() {
         return (
             <div style={pageStyle}>
-                    <h1 style={headerStyling}>
-                        Details
-                    </h1>
+                <h1 style={headerStyling}>
+                    Details
+                </h1>
             </div>
         );
     }

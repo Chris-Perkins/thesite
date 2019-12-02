@@ -2,6 +2,27 @@ import * as React from "react";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 
+const container = {
+    position: "relative" as "relative",
+    margin: "0 0 0 0",
+    backgroundColor: "#ebffe6",
+
+    zIndex: -10
+};
+
+const backgroundDiv = {
+    background: "url('./imgs/cactus.png') repeat",
+    opacity: 0.07,
+
+    position: "absolute" as "absolute",
+    margin: "0 0 0 0",
+    padding: "0 0 0 0",
+    width: "100%",
+    height: "100%",
+
+    zIndex: -5
+};
+
 const quizHeaderStyle = {
     textAlign: "center" as "center"
 };
@@ -24,31 +45,30 @@ const quizBlockStyle = {
     paddingRight: "2%"
 };
 
-const containerStyle = {
-    backgroundColor: "#ebffe6"
-};
-
 export class SignupBlock extends React.Component {
     render() {
         return (
-            <div className="fullContainer" style={containerStyle}>
-                <h2 style={quizHeaderStyle}>
-                    Accept Your Invitation
-                </h2>
-                <p style={quizHeaderStyle}>
-                    Your acceptance allows us to accommodate you best.
-                </p>
-                <CardActionArea style={quizBlockStyle}>
-                    <CardContent>
-                        <p>
-                            TEST<br/>
-                            YO MORE STUFF IN HERE<br/>
-                            YO MORE STUFF IN HERE<br/>
-                            YO MORE STUFF IN HERE<br/>
-                            YO MORE STUFF IN HERE
-                        </p>
-                    </CardContent>
-                </CardActionArea>
+            <div style={container}>
+                <div style={backgroundDiv} />
+                <div className="fullContainer">
+                    <h2 style={quizHeaderStyle}>
+                        Accept Your Invitation
+                    </h2>
+                    <p style={quizHeaderStyle}>
+                        Your acceptance allows us to accommodate you best.
+                    </p>
+                    <CardActionArea style={quizBlockStyle}>
+                        <CardContent>
+                            <p>
+                                TEST<br/>
+                                YO MORE STUFF IN HERE<br/>
+                                YO MORE STUFF IN HERE<br/>
+                                YO MORE STUFF IN HERE<br/>
+                                YO MORE STUFF IN HERE
+                            </p>
+                        </CardContent>
+                    </CardActionArea>
+                </div>
             </div>
         );
     }
