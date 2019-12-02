@@ -50,7 +50,7 @@ export class SignupBlock extends React.Component {
         return (
             <div style={container}>
                 <div style={backgroundDiv} />
-                <div className="fullContainer">
+                <div className="fullContainer" style={{zIndex: 10}}>
                     <h2 style={quizHeaderStyle}>
                         Accept Your Invitation
                     </h2>
