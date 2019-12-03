@@ -3,9 +3,9 @@ import * as React from "react";
 const pageStyle = {
     width: "100%",
     padding: "0%",
-    paddingTop: "10%",
+    paddingTop: "20%",
 
-    background: "url('./imgs/banner.jpg') no-repeat center center",
+    background: "url('./imgs/banner.jpg') no-repeat 50% 40%",
     backgroundSize: "cover",
     overflow: "invisible",
     noRepeat: "50% 50%"
