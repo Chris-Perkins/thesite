@@ -1,6 +1,7 @@
 import * as React from "react";
-import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
+
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const container = {
     position: "relative" as "relative",
@@ -41,9 +42,9 @@ const quizBlockStyle = {
     boxShadow: "2px 2px 5px",
 
     backgroundColor: "#ffffff",
-    borderRadius: "3px",
+    borderRadius: "10px",
 
-    maxWidth: "750px",
+    maxWidth: "700px",
     width: "98%",
     
     marginTop: "2%",
@@ -51,8 +52,16 @@ const quizBlockStyle = {
     marginRight: "auto",
     marginBottom: "3%",
 
-    paddingLeft: "2%",
-    paddingRight: "2%",
+    padding: "3%"
+};
+
+const entrySection = {
+    marginTop: "2%"
+};
+
+const entryStyles = {
+    left: "10%",
+    width: "80%",
 };
 
 export class SignupBlock extends React.Component {
@@ -68,17 +77,23 @@ export class SignupBlock extends React.Component {
                     <p style={quizHeaderStyle}>
                         Your acceptance allows us to accommodate you best.
                     </p>
-                    <CardActionArea style={quizBlockStyle}>
-                        <CardContent>
-                            <p>
-                                TEST<br/>
-                                YO MORE STUFF IN HERE<br/>
-                                YO MORE STUFF IN HERE<br/>
-                                YO MORE STUFF IN HERE<br/>
-                                YO MORE STUFF IN HERE
-                            </p>
-                        </CardContent>
-                    </CardActionArea>
+                    <div style={quizBlockStyle}>
+                        <h6 style={quizHeaderStyle}>
+                            Please Enter Your First and Last Name
+                        </h6>
+                        <p style={{...quizHeaderStyle,...{fontSize: "2.0vh"}}}>
+                            We'll check your invitation status based on your first and last name.<br/>
+                            If have any questions, please contact Lilly or Chris.
+                        </p>
+                        <div style={entrySection}>
+                            <div style={{padding: "1%"}} />
+                            <TextField id="outlined-search" label="Your first and last name" type="search" variant="outlined" style={entryStyles} />
+                            <div style={{padding: "1%"}} />
+                            <Button variant="contained" color="primary" component="span" style={entryStyles}>
+                                Start Registration
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
