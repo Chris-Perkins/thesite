@@ -64,7 +64,26 @@ const entryStyles = {
     width: "80%",
 };
 
-export class SignupBlock extends React.Component {
+
+export class SignupBlock extends React.Component<{}, {textFieldValue: ""}> {
+    
+    constructor(props) {
+        super(props);
+
+        this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
+        this._checkRegistrationStatus = this._checkRegistrationStatus.bind(this);
+    }
+
+    _handleTextFieldChange(e) {
+        this.setState({
+            textFieldValue: e.target.value
+        });
+    }
+
+    _checkRegistrationStatus() {
+        console.log(this.state.textFieldValue);
+    }
+    
     render() {
         return (
             <div style={container}>
@@ -87,9 +106,9 @@ export class SignupBlock extends React.Component {
                         </p>
                         <div style={entrySection}>
                             <div style={{padding: "1%"}} />
-                            <TextField id="outlined-search" label="Your first and last name" type="search" variant="outlined" style={entryStyles} />
+                            <TextField id="outlined-search" label="Your first and last name" type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
                             <div style={{padding: "1%"}} />
-                            <Button variant="contained" color="primary" component="span" style={entryStyles}>
+                            <Button variant="contained" color="primary" component="span" style={entryStyles} onClick={this._checkRegistrationStatus}>
                                 Start Registration
                             </Button>
                         </div>
