@@ -1,28 +1,33 @@
 /* Bro why you looking at my CSS lmao go away */
 
 h1 {
-    font-size: 7.0vh;
+    font-size: 10.0vh;
     font-weight: bold;
+    font-family: 'Amatic SC', cursive;
 }
 
 h2 {
-    font-size: 6.5vh;
+    font-size: 8.0vh;
+    font-family: 'Amatic SC', cursive;
 }
 
 h3 {
-    font-size: 6.0vh;
+    font-size: 7.0vh;
+    font-family: 'Amatic SC', cursive;
 }
 
 h4 {
-    font-size: 5.25vh;
+    font-size: 6.0vh;
+    font-family: 'Amatic SC', cursive;
 }
 
 h5 {
-    font-size: 4.5vh;
+    font-size: 5.25vh;
+    font-family: 'Amatic SC', cursive;
 }
 
 h6 {
-    font-size: 3.75vh;
+    font-size: 4.5vh;
 }
 
 p {

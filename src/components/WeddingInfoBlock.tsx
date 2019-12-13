@@ -77,7 +77,7 @@ export class WeddingInfoBlock extends React.Component {
                                     Stay overnight, even before the wedding.
                                 </h3>
                                 <p>
-                                    The Mission Inn has graciously offered special rates for guests of our wedding. Rates for guests will be roughly $170 for a room per night, with limited availability. Please contact us to learn how to take advantage of this special rate.
+                                    The Mission Inn has graciously offered special rates for guests of our wedding. Rates for guests will be roughly $170 for a room per night (after taxes and fees), with limited availability. Please contact us to learn how to take advantage of this special rate.
                                 </p>
                             </div>
                             <div className="collapsibleTwoColumnElement" style={{...aspectFillPhotoBlock,...{background: "url('./imgs/night.jpg') no-repeat center center"}}} />

@@ -1,7 +1,9 @@
 import * as React from "react";
+import "axios";
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Axios from "axios";
 
 const container = {
     position: "relative" as "relative",
@@ -64,24 +66,61 @@ const entryStyles = {
     width: "80%",
 };
 
+const CancelToken = Axios.CancelToken;
+const source = CancelToken.source();
 
-export class SignupBlock extends React.Component<{}, {textFieldValue: ""}> {
+export class SignupBlock extends React.Component<{}, { textFieldValue, fetching }> {
     
     constructor(props) {
         super(props);
 
         this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
         this._checkRegistrationStatus = this._checkRegistrationStatus.bind(this);
+        this._setFetchingStatus = this._setFetchingStatus.bind(this);
+
+        this.state = {textFieldValue: "", fetching: false};
+    }
+
+    _setFetchingStatus(isFetching) {
+        if (isFetching === this.state.fetching) {
+            // skip
+            return;
+        }
+
+        this.setState({
+            fetching: isFetching
+          });
+        this.forceUpdate();
     }
 
     _handleTextFieldChange(e) {
         this.setState({
             textFieldValue: e.target.value
-        });
+          });
     }
 
-    _checkRegistrationStatus() {
-        console.log(this.state.textFieldValue);
+    async _checkRegistrationStatus() {
+        source.cancel();
+
+        this._setFetchingStatus(true);
+
+        console.log ("!!");
+        const parametersForRequest = { name: this.state.textFieldValue };
+        Axios({
+            method: "get",
+            url: "https://lillyandchriswedding.azurewebsites.net/check-invitation-status",
+            data: parametersForRequest,
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then((response) => {
+            console.log(response);
+            this._setFetchingStatus(false);
+        }, (error) => {
+            console.log(error);
+            this._setFetchingStatus(false);
+        });
     }
     
     render() {
@@ -108,8 +147,8 @@ export class SignupBlock extends React.Component<{}, {textFieldValue: ""}> {
                             <div style={{padding: "1%"}} />
                             <TextField id="outlined-search" label="Your first and last name" type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
                             <div style={{padding: "1%"}} />
-                            <Button variant="contained" color="primary" component="span" style={entryStyles} onClick={this._checkRegistrationStatus}>
-                                Start Registration
+                            <Button variant="contained" color="primary" component="span" disabled={this.state.fetching} style={entryStyles} onClick={this._checkRegistrationStatus}>
+                                {this.state.fetching ? "Loading..." : "Start Registration"}
                             </Button>
                         </div>
                     </div>
