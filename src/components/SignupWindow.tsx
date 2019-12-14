@@ -73,7 +73,7 @@ export class SignupWindow extends React.Component {
 
     getDescription() {
         if (/* +1 not invited */ true) {
-            return "We have a few quick questions before we confirm your invite.";
+            return "We have a few quick questions before we confirm your acceptance.";
         } else {
             return "You and a guest are invited to our wedding.";
         }
