@@ -103,22 +103,16 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
         source.cancel();
 
         this._setFetchingStatus(true);
-
-        console.log ("!!");
-        const parametersForRequest = { name: this.state.textFieldValue };
-        Axios({
-            method: "get",
-            url: "https://lillyandchriswedding.azurewebsites.net/check-invitation-status",
-            data: parametersForRequest,
-            headers: {
-                "Content-Type": "application/json",
+        Axios.get("https://lillyandchriswedding.azurewebsites.net/check-invitation-status", {
+            params: {
+                name: this.state.textFieldValue
             }
         })
         .then((response) => {
             console.log(response);
             this._setFetchingStatus(false);
         }, (error) => {
-            console.log(error);
+            console.log(error.response);
             this._setFetchingStatus(false);
         });
     }
