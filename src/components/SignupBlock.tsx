@@ -97,6 +97,7 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
         this.setState({
             textFieldValue: e.target.value
           });
+        this.forceUpdate();
     }
 
     async _checkRegistrationStatus() {
@@ -118,6 +119,8 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
     }
     
     render() {
+        const fetchButtonEnabled = !(this.state.textFieldValue === "" || this.state.fetching);
+
         return (
             <div style={container}>
                 <div style={backgroundDiv} />
@@ -141,7 +144,7 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
                             <div style={{padding: "1%"}} />
                             <TextField id="outlined-search" label="Your first and last name" type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
                             <div style={{padding: "1%"}} />
-                            <Button variant="contained" color="primary" component="span" disabled={this.state.fetching} style={entryStyles} onClick={this._checkRegistrationStatus}>
+                            <Button variant="contained" color="primary" component="span" disabled={!fetchButtonEnabled} style={entryStyles} onClick={this._checkRegistrationStatus}>
                                 {this.state.fetching ? "Loading..." : "Start Registration"}
                             </Button>
                         </div>
