@@ -142,7 +142,7 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
                         </p>
                         <div style={entrySection}>
                             <div style={{padding: "1%"}} />
-                            <TextField id="outlined-search" label="Your first and last name" type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
+                            <TextField label="Your first and last name" type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
                             <div style={{padding: "1%"}} />
                             <Button variant="contained" color="primary" component="span" disabled={!fetchButtonEnabled} style={entryStyles} onClick={this._checkRegistrationStatus}>
                                 {this.state.fetching ? "Loading..." : "Start Registration"}

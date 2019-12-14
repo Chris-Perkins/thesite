@@ -5,13 +5,11 @@ import { SignupBlock } from "./SignupBlock";
 import { ContactBlock } from "./ContactBlock";
 import { WeddingQuickDetails } from "./WeddingQuickDetails";
 import { InfoBlockBanner } from "./InfoBlockBanner";
+import { SignupWindow } from "./SignupWindow";
 import '../../style.css';
 
 const pageStyle = {
     margin:0,
-    padding: 0,
-    left: 0,
-    right: 0,
     position:"absolute" as "absolute",
 };
 
@@ -19,6 +17,7 @@ export class Home extends React.Component {
     render() {
         return (
             <div style={pageStyle}>
+                <SignupWindow />
                 <HeaderPhotoBanner />
                 <WeddingQuickDetails />
                 <SignupBlock />
