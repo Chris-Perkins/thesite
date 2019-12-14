@@ -72,7 +72,7 @@ export class SignupWindow extends React.Component {
     }
 
     getDescription() {
-        if (/* +1 not invited */ false) {
+        if (/* +1 not invited */ true) {
             return "We have a few quick questions before we confirm your invite.";
         } else {
             return "You and a guest are invited to our wedding.";
@@ -113,12 +113,16 @@ export class SignupWindow extends React.Component {
                 </td>
             </tr>;
 
-        if (/* +1 not invited */false) {
-            return <table style={tableStyle}>
-                        {baseRow}
-                        {notesRow}
-                        {emailRow}
-                   </table>;
+        if (/* +1 not invited */ false) {
+            return <div>
+                        <table style={tableStyle}>
+                            {baseRow}
+                        </table>
+                        <table style={tableStyle}>
+                            {notesRow}
+                            {emailRow}
+                        </table>
+                    </div>;
         } else {
             return <table style={tableStyle}>
                         {baseRow}
