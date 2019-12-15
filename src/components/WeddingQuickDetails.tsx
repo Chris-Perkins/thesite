@@ -39,7 +39,6 @@ const leafAccent = {
     paddingBottom: "20%",
     minWidth: "200px",
     minHeight: "300px",
-    opacity: 0.5,
     width: "15%",
 
     display: "block" as "block",
@@ -73,8 +72,8 @@ export class WeddingQuickDetails extends React.Component {
     render() {
         return (
             <div style={container}>
-                <div style={{...leafAccent,...leftLeafAccent}} />
-                <div style={{...leafAccent,...rightLeafAccent}} />
+                <div style={{...leafAccent,...leftLeafAccent}} className="hiddenOnMobile" />
+                <div style={{...leafAccent,...rightLeafAccent}} className="hiddenOnMobile" />
                 <div style={backgroundDiv} />
                 <div className="fullContainer">
                     <div style={blockStyle}>
