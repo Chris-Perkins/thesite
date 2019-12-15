@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import { store } from "../store";
+import Label from "reactstrap/lib/Label";
 
 const container = {
     position: "fixed" as "fixed",
@@ -207,36 +208,36 @@ export class SignupWindow extends React.Component {
             </tr>;
         const notesRow =
                 <tr>
-                    <td colSpan={2}>
+                    <td colSpan={2} style={{width: "100%"}}>
                         <p style={{textAlign: "center" as "center", paddingBottom: "10px", paddingTop: "2%"}}>
                             <b>Is there anything we should know?</b>
                         </p>
-                        <TextField style={{width: "100%"}} variant="outlined" multiline rowsMax="3" label="Notes" placeholder="Children, allergies, etc." onChange={this._updateNotes} disabled={store.uploading} />
+                        <TextField style={{width: "100%"}} key="Confirmation Code" variant="outlined" multiline rowsMax="3" label="Notes" placeholder="Children, allergies, etc." onChange={this._updateNotes} disabled={store.uploading} />
                     </td>
                 </tr>;
         const emailRow = 
             <tr>
-                <td colSpan={2}>
+                <td colSpan={2} style={{width: "100%"}}>
                     <p style={{textAlign: "center" as "center", paddingTop: "2%"}}>
                         <b>What is your email?</b>
                     </p>
                     <p style={{textAlign: "center" as "center", fontSize: "1.75vh", paddingBottom: "10px"}}>
                         We'll only contact you with news about the wedding and to send out photos afterwards.
                     </p>
-                    <TextField style={{width: "100%"}} variant="outlined" rows="3" label="Email" required placeholder="you@domain.com" onChange={this._updateEmail} disabled={store.uploading} />
+                    <TextField style={{width: "100%"}} key="Confirmation Code" variant="outlined" rows="3" label="Email" required placeholder="you@domain.com" onChange={this._updateEmail} disabled={store.uploading} />
                 </td>
             </tr>;
 
         if (!store.plusOneInvited) {
-            return <div>
-                        <table style={tableStyle}>
-                            {baseRow}
-                        </table>
-                        <table style={tableStyle}>
-                            {notesRow}
-                            {emailRow}
-                        </table>
-                    </div>;
+            return <table style={tableStyle}>
+                        <tr>
+                            <table>
+                                {baseRow}
+                            </table>
+                        </tr>
+                        {notesRow}
+                        {emailRow}
+                    </table>;
         } else {
             return <table style={tableStyle}>
                         {baseRow}

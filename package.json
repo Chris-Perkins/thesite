@@ -4,7 +4,7 @@
   "description": "I love my fiancé",
   "main": "index.js",
   "dependencies": {
-    "@material-ui/core": "^4.6.1",
+    "@material-ui/core": "^4.8.0",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.3.0",
     "@types/reactstrap": "^6.0.2",
