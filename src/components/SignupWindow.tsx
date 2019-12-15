@@ -206,7 +206,7 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
         const baseRow = 
             <tr>
                 <td>
-                    <Checkbox onChange={this._updateOver21} disabled={store.uploading} />
+                    <Checkbox onChange={this._updateOver21} color="primary" disabled={store.uploading} />
                 </td>
                 <td>
                     <p>
@@ -251,7 +251,7 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
                         {baseRow}
                         <tr>
                             <td>
-                                <Checkbox onChange={this._updatePlusOneAttending} disabled={store.uploading} />
+                                <Checkbox onChange={this._updatePlusOneAttending} color="primary" disabled={store.uploading} />
                             </td>
                             <td>
                                 <p>
@@ -261,7 +261,7 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
                         </tr>
                         <tr>
                             <td>
-                                <Checkbox onChange={this._updatePlusOneOver21} disabled={store.uploading} />
+                                <Checkbox onChange={this._updatePlusOneOver21} color="primary" disabled={store.uploading} />
                             </td>
                             <td>
                                 <p>
