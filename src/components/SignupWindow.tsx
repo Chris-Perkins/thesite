@@ -5,8 +5,9 @@ import "axios";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
+import { withStyles } from "@material-ui/core/styles";
+
 import { store } from "../store";
-import Label from "reactstrap/lib/Label";
 
 const container = {
     position: "fixed" as "fixed",
@@ -65,7 +66,7 @@ const tableContainer = {
 };
 
 @observer
-export class SignupWindow extends React.Component {
+export class SignupWindow extends React.Component<{}, {remounted: string}> {
 
     constructor(props) {
         super(props);
@@ -83,6 +84,9 @@ export class SignupWindow extends React.Component {
         this._updatePlusOneOver21 = this._updatePlusOneOver21.bind(this);
 
         this._cancel = this._cancel.bind(this);
+        this._textFocus = this._textFocus.bind(this);
+
+        this.state = {remounted: null};
     }
 
     _cancel() {
@@ -114,6 +118,10 @@ export class SignupWindow extends React.Component {
                 {"Your email: " + this.getSubstringIfNecessary(40, store.email)}
             </p>
         </div>;
+    }
+
+    _textFocus() {
+        this.setState({remounted: "x"});
     }
 
     _updateOver21(e, isChecked) {
@@ -212,7 +220,7 @@ export class SignupWindow extends React.Component {
                         <p style={{textAlign: "center" as "center", paddingBottom: "10px", paddingTop: "2%"}}>
                             <b>Is there anything we should know?</b>
                         </p>
-                        <TextField style={{width: "100%"}} key="Confirmation Code" variant="outlined" multiline rowsMax="3" label="Notes" placeholder="Children, allergies, etc." onChange={this._updateNotes} disabled={store.uploading} />
+                        <TextField key={this.state.remounted} fullWidth variant="outlined" multiline rowsMax="3" label="Notes" placeholder="Children, allergies, etc." onChange={this._updateNotes} disabled={store.uploading} />
                     </td>
                 </tr>;
         const emailRow = 
@@ -224,7 +232,7 @@ export class SignupWindow extends React.Component {
                     <p style={{textAlign: "center" as "center", fontSize: "1.75vh", paddingBottom: "10px"}}>
                         We'll only contact you with news about the wedding and to send out photos afterwards.
                     </p>
-                    <TextField style={{width: "100%"}} key="Confirmation Code" variant="outlined" rows="3" label="Email" required placeholder="you@domain.com" onChange={this._updateEmail} disabled={store.uploading} />
+                    <TextField key={this.state.remounted} fullWidth variant="outlined" rows="3" label="Email" required placeholder="you@domain.com" onChange={this._updateEmail} disabled={store.uploading} />
                 </td>
             </tr>;
 
@@ -268,6 +276,12 @@ export class SignupWindow extends React.Component {
     }
     
     render() {
+        if (store.signupOpen) {
+            if (this.state.remounted === null) {
+                setTimeout(this._textFocus, 100);
+            }
+        }
+
         return (
             <div style={{...container,...{display: store.signupOpen ? "block" as "block" : "none" as "none"}}}>
                 <div style={window}>
