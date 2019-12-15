@@ -4,6 +4,7 @@ import "axios";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Axios from "axios";
+import { store } from "../store";
 
 const container = {
     position: "relative" as "relative",
@@ -110,10 +111,16 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
             }
         })
         .then((response) => {
-            console.log(response);
+            if (response.data.invited) {
+                store.name = response.data.name;
+                store.signupOpen = true;
+                store.plusOneInvited = response.data.plusOneInvited;
+            } else {
+                alert("We were unable to locate your invitation. Please check your first and last name's spelling and try again. If this error persists, please contact Lilly or Chris");
+            }
             this._setFetchingStatus(false);
         }, (error) => {
-            console.log(error.response);
+            alert("Unable to fetch your invitation status. Please try again. If this error persists, please contact Lilly or Chris.");
             this._setFetchingStatus(false);
         });
     }
@@ -142,7 +149,7 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
                         </p>
                         <div style={entrySection}>
                             <div style={{padding: "1%"}} />
-                            <TextField label="Your first and last name" type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
+                            <TextField label="Your first and last name" required type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
                             <div style={{padding: "1%"}} />
                             <Button variant="contained" color="primary" component="span" disabled={!fetchButtonEnabled} style={entryStyles} onClick={this._checkRegistrationStatus}>
                                 {this.state.fetching ? "Loading..." : "Start Registration"}
