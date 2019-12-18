@@ -45,6 +45,11 @@ const separateDivsContinuousBlock = {
     padding: 0
 };
 
+const detailFrame = {
+    borderRadius: "5px", 
+    boxShadow: "2px 2px 4px #CACACA"
+};
+
 const googleMapsFrame = '<iframe top=0 left=0 right=0 bottom=0 width="100%" height="100%" margin=0 position="absolute" frameborder=0 src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJBXoN1P9154gRBFmCgKtrG8o&key=AIzaSyBuYQ1LdimDqupYvIcl9Tm3pA2s5Ye8_yU" allowfullscreen></iframe>';
 
 export class WeddingInfoBlock extends React.Component {
@@ -69,7 +74,7 @@ export class WeddingInfoBlock extends React.Component {
                                     Further details about Mission Inn can be viewed at <a href="https://missioninnresort.com/">their website</a>.
                                 </p>
                             </div>
-                            <div className="collapsibleTwoColumnElement" dangerouslySetInnerHTML={{__html: googleMapsFrame}} />
+                            <div className="collapsibleTwoColumnElement" style={detailFrame} dangerouslySetInnerHTML={{__html: googleMapsFrame}} />
                         </div>
                         <div style={infoSection}>
                             <div className="collapsibleTwoColumnElement">
@@ -80,7 +85,7 @@ export class WeddingInfoBlock extends React.Component {
                                     The Mission Inn has graciously offered special rates for guests of our wedding. Rates for guests will be roughly $170 for a room per night (after taxes and fees), with limited availability. Please contact us to learn how to take advantage of this special rate.
                                 </p>
                             </div>
-                            <div className="collapsibleTwoColumnElement" style={{...aspectFillPhotoBlock,...{background: "url('./imgs/night.jpg') no-repeat center center"}}} />
+                            <div className="collapsibleTwoColumnElement" style={{...aspectFillPhotoBlock,...detailFrame,...{background: "url('./imgs/night.jpg') no-repeat center center"}}} />
                         </div>
                         <div style={infoSection}>
                             <div className="collapsibleTwoColumnElement">
@@ -108,9 +113,9 @@ export class WeddingInfoBlock extends React.Component {
                                 To ensure you're as comfortable as possible, please contact either Lilly or Chris with any questions. From general "Florida-prep" to more specific wedding details, we'd be happy to assist.
                             </p>
                             <p style={{marginTop: "0.5%"}}>
-                                Contact Lilly:&nbsp;
+                                Contact Lilly: 1
                                 <span style={separateDivsContinuousBlock}>
-                                    115
+                                    15
                                 </span>
                                 <span style={separateDivsContinuousBlock}>
                                     lillyn
@@ -132,9 +137,9 @@ export class WeddingInfoBlock extends React.Component {
                                 </span>
                             </p>
                             <p style={{marginTop: "0.5%"}}>
-                                Contact Chris:&nbsp;
+                                Contact Chris: c
                                 <span style={separateDivsContinuousBlock}>
-                                    chr
+                                    hr
                                 </span>
                                 <span style={separateDivsContinuousBlock}>
                                     is

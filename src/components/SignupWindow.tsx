@@ -103,12 +103,12 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
             </p>
             {
                 store.plusOneInvited ? <p>
-                    {"Plus one coming: " + (store.plusOneAttending ? "Yes" : "No")}
+                    {store.plusOneAttending ? "You will be bringing a guest" : "You are not bringing a guest"}
                 </p> : null
             }
             {
                 store.plusOneAttending ? <p>
-                    {"Plus one over 21: " + (store.plusOneOver21)}
+                    {store.plusOneOver21 ? "Your guest will be over 21" : "Your guest will not be over 21"}
                 </p> : null
             }
             {

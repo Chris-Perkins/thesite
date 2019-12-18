@@ -8,7 +8,9 @@ const pageStyle = {
     background: "url('./imgs/meandlil.jpg') no-repeat center center",
     backgroundSize: "cover",
     overflow: "invisible",
-    noRepeat: "50% 50%"
+    noRepeat: "50% 50%",
+
+    shadowBox: "1px 1px 3px"
 };
 
 const headerStyling = {
