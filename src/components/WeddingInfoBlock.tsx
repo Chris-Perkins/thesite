@@ -65,7 +65,7 @@ export class WeddingInfoBlock extends React.Component {
                                     We're excited to have you come!
                                 </h3>
                                 <p>
-                                    The wedding will take place at the Mission Inn located in Howey In The Hills on June 27th, 2020.
+                                    The wedding will take place at the Mission Inn located in Howey In The Hills on October 16th, 2020.
                                 </p>
                                 <p style={{marginTop: "1%"}}>
                                     Complimentary parking will be available at the venue. From the main lobby, there will be signs guiding you to our ceremony. If you get lost, please call the Mission Inn desk: <a href="tel:3523243101">(352) 324-3101</a>

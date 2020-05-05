@@ -8,6 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { withStyles } from "@material-ui/core/styles";
 
 import { store } from "../store";
+import Alert from "reactstrap/lib/Alert";
 
 const container = {
     position: "fixed" as "fixed",
@@ -76,6 +77,8 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
         this.getWindowContents = this.getWindowContents.bind(this);
         this.getConfirmedWindowDescription = this.getConfirmedWindowDescription.bind(this);
         this.getSubstringIfNecessary = this.getSubstringIfNecessary.bind(this);
+        this.getAttendingContents = this.getAttendingContents.bind(this);
+        this.getCancellingContents = this.getCancellingContents.bind(this);
 
         this._updateOver21 = this._updateOver21.bind(this);
         this._updateNotes = this._updateNotes.bind(this);
@@ -136,6 +139,10 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
         store.email = e.target.value;
     }
 
+    _updateName(e) {
+        store.name = e.target.value;
+    }
+
     _updatePlusOneAttending(e, isChecked) {
         store.plusOneAttending = isChecked;
     }
@@ -148,7 +155,7 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
         return str.length > length ? str.substring(0, length) + "..." : str;
     }
 
-    getWindowContents() {
+    getAttendingContents() {
         if (store.signupConfirmed) {
             return <div style={full}>
                     <h6 style={{margin: 0, paddingTop: "8px"}}>
@@ -191,6 +198,41 @@ export class SignupWindow extends React.Component<{}, {remounted: string}> {
                             </div>
                         </div>
                     </div>;
+        }
+    }
+
+    getCancellingContents() {
+        if (store.signupConfirmed) {
+                return <div style={full}>
+                    <h6 style={{margin: "1%"}}>
+                        Your cancellation is confirmed.
+                    </h6>
+                    <div style={{height: "16px"}}/>
+                    <Button variant="contained" color="primary" style={full} onClick={this._cancel}>
+                        Close
+                    </Button>
+                </div>;
+        } else {
+            return <div style={full}>
+                    <h6 style={{margin: "1%"}}>
+                        Cancel an RSVP
+                    </h6>
+                    <TextField style={{marginTop: "1%", marginBottom: "2%"}} key={this.state.remounted} fullWidth variant="outlined" multiline rowsMax="3" label="First and Last Name" placeholder="John Smith" onChange={this._updateName} disabled={store.uploading} />
+                    <Button style={full} variant="contained" color="primary" onClick={store.upload} disabled={store.uploading || store.name === ""}>
+                        Cancel RSVP
+                    </Button>
+                    <Button style={{marginTop: "1%", marginBottom: "1%"}} color="primary" onClick={this._cancel}>
+                        Close this window
+                    </Button>
+                </div>;
+        }
+    }
+
+    getWindowContents() {
+        if (store.isCancelling) {
+            return this.getCancellingContents();
+        } else {
+            return this.getAttendingContents();
         }
     }
 

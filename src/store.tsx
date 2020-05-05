@@ -11,31 +11,59 @@ class Store {
     upload() {
         this.uploading = true;
 
-        Axios.post(
-            "https://lillyandchriswedding.azurewebsites.net/update-attendant-status",
-            {
-                name: this.name,
-                attending: true,
-                overTwentyOne: this.over21,
-                plusOneAttending: this.plusOneAttending,
-                plusOneOverTwentyOne: this.plusOneOver21,
-                dietaryRestrictions: this.dietaryRestrictions,
-                email: this.email
-            },
-            {
-                headers: {
-                    "Content-Type": "application/json"
+        if (this.isCancelling) {
+            Axios.post(
+                "https://lillyandchriswedding.azurewebsites.net/update-attendant-status",
+                {
+                    name: this.name,
+                    attending: false,
+                    overTwentyOne: false,
+                    plusOneAttending: false,
+                    plusOneOverTwentyOne: false,
+                    dietaryRestrictions: "",
+                    email: ""
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
                 }
-            }
-        ).then((response) => {
-            console.log(response);
-            this.uploading = false;
-            this.signupConfirmed = true;
-        }, (error) => {
-            console.log(error.response);
-            this.uploading = false;
-            alert("We could not confirm your attendance. Please try again.\nIf this error persists, contact Chris or Lilly.");
-        });
+            ).then((response) => {
+                console.log(response);
+                this.uploading = false;
+                this.signupConfirmed = true;
+            }, (error) => {
+                console.log(error.response);
+                this.uploading = false;
+                alert("We could not confirm your attendance. Please try again.\nIf this error persists, contact Chris or Lilly.");
+            });
+        } else {
+            Axios.post(
+                "https://lillyandchriswedding.azurewebsites.net/update-attendant-status",
+                {
+                    name: this.name,
+                    attending: true,
+                    overTwentyOne: this.over21,
+                    plusOneAttending: this.plusOneAttending,
+                    plusOneOverTwentyOne: this.plusOneOver21,
+                    dietaryRestrictions: this.dietaryRestrictions,
+                    email: this.email
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            ).then((response) => {
+                console.log(response);
+                this.uploading = false;
+                this.signupConfirmed = true;
+            }, (error) => {
+                console.log(error.response);
+                this.uploading = false;
+                alert("We could not confirm your attendance. Please try again.\nIf this error persists, contact Chris or Lilly.");
+            });
+        }
     }
 
     reset() {
@@ -49,6 +77,7 @@ class Store {
         this.dietaryRestrictions = "";
         this.email = "";
         this.name = "";
+        this.isCancelling = false;
     }
 
     @observable signupOpen = false;
@@ -60,7 +89,8 @@ class Store {
     plusOneOver21 = false;
     dietaryRestrictions = "";
     @observable email = "";
-    name = "";
+    @observable name = "";
+    isCancelling = false;
 }
 
 export const store = new Store();

@@ -53,13 +53,24 @@ const quizBlockStyle = {
     marginTop: "2%",
     marginLeft: "auto",
     marginRight: "auto",
-    marginBottom: "3%",
+    marginBottom: "1%",
 
     padding: "3%"
 };
 
 const entrySection = {
     marginTop: "2%"
+};
+
+const cantMakeItButton = {
+    marginTop: "1%",
+    marginBottom: "1%",
+    maxWidth: "700px",
+    width: "98%",
+    
+    marginLeft: "auto",
+    marginRight: "auto",
+    textAlign: "center" as "center"
 };
 
 const entryStyles = {
@@ -78,6 +89,7 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
         this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
         this._checkRegistrationStatus = this._checkRegistrationStatus.bind(this);
         this._setFetchingStatus = this._setFetchingStatus.bind(this);
+        this._unsignUpPress = this._unsignUpPress.bind(this);
 
         this.state = {textFieldValue: "", fetching: false};
     }
@@ -92,6 +104,11 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
             fetching: isFetching
           });
         this.forceUpdate();
+    }
+
+    _unsignUpPress() {
+        store.signupOpen = true;
+        store.isCancelling = true;
     }
 
     _handleTextFieldChange(e) {
@@ -155,6 +172,11 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
                                 {this.state.fetching ? "Loading..." : "Start Registration"}
                             </Button>
                         </div>
+                    </div>
+                    <div style={cantMakeItButton}>
+                        <Button color="primary" component="span" onClick={this._unsignUpPress}>
+                            <u>Can't make it anymore?</u>
+                        </Button>
                     </div>
                 </div>
             </div>
