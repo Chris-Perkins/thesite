@@ -93,7 +93,7 @@ export class WeddingInfoBlock extends React.Component {
                                     Dress to your comfort; it's Florida.
                                 </h3>
                                 <p>
-                                    Please dress to your comfort in dressy casual clothes; this is a Florida summer. Our only request is that you leave any gym shorts and white clothes at home.
+                                    Please dress to your comfort in dressy casual clothes; we want you to feel comfortable. Our only request is that you leave any gym shorts and white clothes at home.
                                 </p>
                             </div>
                             <div className="collapsibleTwoColumnElement">
