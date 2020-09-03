@@ -91,7 +91,7 @@ export class WeddingQuickDetails extends React.Component {
                                     ON
                                 </p>
                                 <h5>
-                                    October 16, 2020 at 5:15PM
+                                    June 11th, 2021 at 5:15PM
                                 </h5>
                             </div>
                             <div style={subSectionBlock}>
