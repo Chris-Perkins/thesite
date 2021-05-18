@@ -2,11 +2,11 @@ import * as React from "react";
 import { WeddingInfoBlock } from "./WeddingInfoBlock";
 import { HeaderPhotoBanner } from "./HeaderPhotoBanner";
 import { SignupBlock } from "./SignupBlock";
-import { ContactBlock } from "./ContactBlock";
+import { ContactBlock } from "../ContactBlock";
 import { WeddingQuickDetails } from "./WeddingQuickDetails";
 import { InfoBlockBanner } from "./InfoBlockBanner";
 import { SignupWindow } from "./SignupWindow";
-import '../../style.css';
+import '../../../style.css';
 
 const pageStyle = {
     margin:0,

@@ -5,10 +5,8 @@ import "axios";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
-import { withStyles } from "@material-ui/core/styles";
 
-import { store } from "../store";
-import Alert from "reactstrap/lib/Alert";
+import { store } from "../../store";
 
 const container = {
     position: "fixed" as "fixed",
