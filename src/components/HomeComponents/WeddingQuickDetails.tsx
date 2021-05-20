@@ -60,12 +60,21 @@ const backgroundDiv = {
     background: "url('./imgs/dots.png') repeat",
 
     position: "absolute" as "absolute",
-    margin: "0 0 0 0",
-    padding: "0 0 0 0",
+    margin: 0,
+    padding: 0,
     width: "100%",
     height: "100%",
 
     zIndex: -5
+};
+
+const link = {
+    maxWidth: "500px",
+    width: "90%",
+    marginLeft: "auto" as "auto",
+    marginRight: "auto" as "auto",
+
+    fontSize: "3.5vh"
 };
 
 export class WeddingQuickDetails extends React.Component {
@@ -104,6 +113,11 @@ export class WeddingQuickDetails extends React.Component {
                                 <p style={miniHeader}>
                                     Howey in the Hills, Florida
                                 </p>
+                            </div>
+                            <div style={subSectionBlock}>
+                                <a href="#/seating" color="primary" style={link}>
+                                    View the seating chart
+                                </a>
                             </div>
                         </div>
                     </div>
