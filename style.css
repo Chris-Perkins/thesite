@@ -78,31 +78,38 @@ ul {
 
 .collapsibleFourColumnElement {
     width: 20%;
-    margin: 0.5% 1.25% 1% 1.25%;
+    padding: 0.5% 2.5% 1% 2.5%;
+    margin: 0.5% 2.5% 1% 2.5%;
 
-    display: flex;
-    justify-content: center;
+    display: block;
 }
 
 .hiddenOnMobile {
     opacity: 0.5;
 }
 
-@media only screen and (max-width: 1000px) {
+.collapsibleFourColumnElement h4
+{
+    text-align: left;
+}
+
+@media only screen and (max-width: 1200px) {
     .collapsibleFourColumnElement {
         width: 29%;
+        padding: 0.75% 1% 1.5% 1%;
         margin: 0.75% 1% 1.5% 1%;
     }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
     .collapsibleTwoColumnElement {
         width: 100%;
-        margin: 1% 0 2% 0;
+        padding: 1% 0 2% 0;
     }
 
     .collapsibleFourColumnElement {
         width: 45%;
+        padding: 1% 1.25% 2% 1.25%;
         margin: 1% 1.25% 2% 1.25%;
     }
 
@@ -111,9 +118,10 @@ ul {
     }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 450px) {
     .collapsibleFourColumnElement {
-        width: 100%;
-        margin: 1% 2% 2% 2%;
+        min-width: 51%; /* no 2 boxes on the same row pls */
+        padding: 1% 2% 2% 2%;
+        margin: 1% 10% 2% 10%;
     }
 }

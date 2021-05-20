@@ -4,7 +4,8 @@ const contactDetails = {
     color: "black",
     textAlign: "center" as "center",
     
-    padding: "1%"
+    padding: "1%",
+    marginBottom: "0%"
 };
 
 export class ContactBlock extends React.Component {

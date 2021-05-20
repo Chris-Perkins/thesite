@@ -1,11 +1,14 @@
 import * as React from "react";
 import '../../../style.css';
+import { store } from "../../store";
 import { ContactBlock } from "../ContactBlock";
+import SearchBar from "material-ui-search-bar";
+import { observer } from "mobx-react";
 
 const blockStyle = {
     paddingLeft: "1%",
     paddingRight: "1%",
-    paddingTop: "2%",
+    paddingTop: "0.5%",
     paddingBottom: "2%",
     
     justifyContent: "center" as "center",
@@ -53,101 +56,183 @@ const mainText = {
 const tableText = {
 };
 
+const searchStyle = {
+    maxWidth: "500px",
+    width: "90%",
+
+    margin: "2% auto"
+};
+
+const selectedText = {
+    color: "black" as "black"
+};
+
+const unselectedText = {
+    color: "LightGray" as "LightGray"
+};
+
 const tableAssignments = [
-    [
-        "becca stinky",
-        "becca gay",
-        "becca poo poo",
-        "becca dummy",
-        "becca cool",
-        "becca awesome"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-        "poo poo",
-        "ca ca",
-        "pee pee pee",
-        "lorus ipsum",
-        "brown dog",
-        "lazy fox"
-    ],
-    [
-    ]
+    {
+        tableNumber: 1,
+        people: [
+            "Chris Perkins",
+            "Lilly Nava"
+        ]
+    },
+    {
+        tableNumber: 2,
+        people: [
+            "Irene Perkins",
+            "Paul Perkins",
+            "Auntie Heidi",
+            "Auntie Daphne",
+            "Beak Beax and +1",
+            "Fwind and +1",
+            "Uncle Marty",
+            "Ryaan Ferdous",
+            "Arianna Ferdous",
+            "Denise Mullinax",
+            "Rahul Reddy"
+        ]
+    },
+    {        
+        tableNumber: 3,
+        people: [
+            "Bear Bridgeman",
+            "Alex Bridgeman",
+            "Bryce Bridgeman and +1",
+            "Robert Bridgeman and +1",
+            "Momma Bridge",
+            "Papa Bridge",
+            "Grandma Bridge"
+        ]
+    },
+    {
+        tableNumber: 4,
+        people: [
+            "Grant Mullinax",
+            "Michael Mansfield",
+            "Avi Rosenblum",
+            "Jasper Zaporteza",
+            "James Commerford and +1",
+            "Jack Commerford",
+            "Laura Commerford"
+        ]
+    },
+    {
+        tableNumber: 5,
+        people: [
+            "Cody McKee",
+            "Gabby Bilka",
+            "Sam Mueller",
+            "Jacob Hughes",
+            "Preethesh Puthran",
+            "Ian Hudson",
+            "Neel Jha and +1",
+            "Aleksandr Diamond",
+            "Charlie Tran"
+        ]
+    },
+    {
+        tableNumber: 6,
+        people: [
+            "Hanna Kawoosa",
+            "Skyler Reimer",
+            "Will Schnicke",
+            "Scott Crawford",
+            "Lily Chen",
+            "Nathan Harris",
+            "Daniel Lemmond",
+            "Enoch Kim",
+            "Dhruv Chawla"
+        ]
+    },
+    {
+        tableNumber: 7,
+        people: [
+            "Heriberto Nava",
+            "Adriana Ortiz",
+            "Enrique Lopez",
+            "Karyme Balderas",
+            "Rosa Nava",
+            "Maria Ramirez",
+            "Juan Ramirez"
+        ]
+    },
+    {
+        tableNumber: 8,
+        people: [
+            "Eddy Ortiz",
+            "Daniel Ortiz",
+            "Leti Martinez",
+            "Joaquin Ortiz",
+            "Lissette Ortiz",
+            "Lexine Ortiz",
+            "Padre Alfredo",
+            "Graciela Hernandez"
+        ]
+    },
+    {
+        tableNumber: 9,
+        people: [
+            "Karla Nava",
+            "Sonia Yadav",
+            "Chandrakant Yadav",
+            "Renato Cifuentes and +1",
+            "Olga Gomez",
+            "Jaime Gomez",
+            "Justin Gomez",
+            "Jonathan Gomez",
+            "Felipe Nava"
+        ]
+    },
+    {
+        tableNumber: 10,
+        people: [
+            "Rhiannon Peace and +1",
+            "Kevin Peace",
+            "Tabitha Peace",
+            "Ryliegh Peace",
+            "Regina Peace",
+            "Erica Whitlock"
+        ]
+    },
+    {
+        tableNumber: 11,
+        people: [
+            "Duncan Quint",
+            "Logan Quint",
+            "Scott Quint",
+            "Denise Quint",
+            "Helen Pounders",
+            "Carolyna Belhadj"
+        ]
+    },
+    {
+        tableNumber: 12,
+        people: [
+            "Claudia Sanchez",
+            "Ray Sanchez",
+            "Henessey Hernandez",
+            "Ray Sanchez Jr.",
+            "Rosaline Sanchez",
+            "Jaqueline Carillo"
+        ]
+    }
 ];
 
+@observer
 export class SeatingChart extends React.Component {
     render() {
+        function isNameSearched(name: string)
+        {
+            return store.query === "" || name.toLowerCase().includes(store.query.toLowerCase());
+        }
+
+        const priorityTables = tableAssignments.filter((ta) => ta.people.some((name) => isNameSearched(name)));
+        const nonPriorityTables = tableAssignments.filter((ta) => !(ta.people.some((name) => isNameSearched(name))));
+        const sortedTables = [].concat(priorityTables).concat(nonPriorityTables);
+
         return (
             <div style={container}>
                 <div style={backgroundDiv} />
@@ -159,15 +244,25 @@ export class SeatingChart extends React.Component {
                         You are assigned a table, and not a specific seat. Sit wherever you prefer at your designated table. ♥
                     </p>
                 </div>
+                <SearchBar
+                    value={store.query}
+                    onChange={(newValue) => store.query = newValue}
+                    onCancelSearch={() => store.query = ""}
+                    style={searchStyle}
+                    placeholder={"Search your name"}
+                />
                 <div className="fullContainer" style={blockStyle}>
-                    {tableAssignments.map((tableGroup, index) => (
+                    {sortedTables.map((tableGroup) => (
                         <div className="collapsibleFourColumnElement">
-                            {tableGroup.length == 0 
-                            ? <span></span> 
-                            : <div style={innerBlock}>
-                                <h4 style={tableText}>Table {index + 1}</h4>
-                                <ul>{tableGroup.sort().map((name) => <li>{name}</li>)}</ul>
-                              </div>}
+                            <div style={innerBlock}>
+                                <h4 style={tableText}>Table {tableGroup.tableNumber}</h4>
+                                <ul>
+                                    {
+                                        tableGroup.people.sort().map((name) => 
+                                        <li style={isNameSearched(name) ? selectedText : unselectedText}>{name}</li>)
+                                    }
+                                </ul>
+                            </div>
                         </div>
                     ))}
                 </div>

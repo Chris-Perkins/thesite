@@ -78,6 +78,7 @@ class Store {
         this.email = "";
         this.name = "";
         this.isCancelling = false;
+        this.query = "";
     }
 
     @observable signupOpen = false;
@@ -91,6 +92,7 @@ class Store {
     @observable email = "";
     @observable name = "";
     isCancelling = false;
+    @observable query = "";
 }
 
 export const store = new Store();
