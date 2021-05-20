@@ -87,11 +87,12 @@ const tableAssignments = [
             "Auntie Heidi",
             "Auntie Daphne",
             "Beak Beax and +1",
-            "Fwind and +1",
+            "Ally Perkins and +1",
             "Uncle Marty",
             "Ryaan Ferdous",
             "Arianna Ferdous",
             "Denise Mullinax",
+            "Gerald Mullinax",
             "Rahul Reddy"
         ]
     },
