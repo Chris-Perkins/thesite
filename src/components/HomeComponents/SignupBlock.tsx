@@ -55,7 +55,7 @@ const quizBlockStyle = {
     marginRight: "auto",
     marginBottom: "1%",
 
-    padding: "3%"
+    padding: "2%"
 };
 
 const entrySection = {
@@ -158,25 +158,11 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
                     </p>
                     <div style={quizBlockStyle}>
                         <h6 style={quizHeaderStyle}>
-                            Please Enter Your First and Last Name
+                            RSVPs are closed at this time.
                         </h6>
                         <p style={{...quizHeaderStyle,...{fontSize: "2.0vh"}}}>
-                            We'll check your invitation status based on your first and last name.<br/>
-                            If have any questions, please contact Lilly or Chris.
+                            The wedding is coming up on us shortly! If you need to modify your RSVP, please contact the bride or groom.
                         </p>
-                        <div style={entrySection}>
-                            <div style={{padding: "1%"}} />
-                            <TextField label="Your first and last name" required type="search" variant="outlined" style={entryStyles} onChange={this._handleTextFieldChange} />
-                            <div style={{padding: "1%"}} />
-                            <Button variant="contained" color="primary" component="span" disabled={!fetchButtonEnabled} style={entryStyles} onClick={this._checkRegistrationStatus}>
-                                {this.state.fetching ? "Loading..." : "Start Registration"}
-                            </Button>
-                        </div>
-                    </div>
-                    <div style={cantMakeItButton}>
-                        <Button color="primary" component="span" onClick={this._unsignUpPress}>
-                            <u>Can't make it anymore?</u>
-                        </Button>
                     </div>
                 </div>
             </div>
