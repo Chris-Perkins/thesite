@@ -87,7 +87,7 @@ const tableAssignments = [
             "Auntie Heidi",
             "Auntie Daphne",
             "Beak Beax and +1",
-            "Ally Perkins and +1",
+            "Alexandria Perkins and +1",
             "Uncle Marty",
             "Ryaan Ferdous",
             "Arianna Ferdous",
@@ -100,7 +100,7 @@ const tableAssignments = [
         tableNumber: 3,
         people: [
             "Bear Bridgeman",
-            "Alex Bridgeman",
+            "Alex Bridgeman and +1",
             "Bryce Bridgeman and +1",
             "Robert Bridgeman and +1",
             "Momma Bridge",
@@ -176,10 +176,9 @@ const tableAssignments = [
     {
         tableNumber: 9,
         people: [
-            "Karla Nava",
+            "Karla Nava and +1",
             "Sonia Yadav",
             "Chandrakant Yadav",
-            "Renato Cifuentes and +1",
             "Olga Gomez",
             "Jaime Gomez",
             "Justin Gomez",
@@ -194,14 +193,13 @@ const tableAssignments = [
             "Kevin Peace",
             "Tabitha Peace",
             "Ryliegh Peace",
-            "Regina Peace",
-            "Erica Whitlock"
+            "Regina Peace"
         ]
     },
     {
         tableNumber: 11,
         people: [
-            "Duncan Quint",
+            "Duncan Quint and +1",
             "Logan Quint",
             "Scott Quint",
             "Denise Quint",

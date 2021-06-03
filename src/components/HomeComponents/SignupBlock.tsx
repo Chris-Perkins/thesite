@@ -143,8 +143,6 @@ export class SignupBlock extends React.Component<{}, { textFieldValue, fetching 
     }
     
     render() {
-        const fetchButtonEnabled = !(this.state.textFieldValue === "" || this.state.fetching);
-
         return (
             <div style={container}>
                 <div style={backgroundDiv} />
